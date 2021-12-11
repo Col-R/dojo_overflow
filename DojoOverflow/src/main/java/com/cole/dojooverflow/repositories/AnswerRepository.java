@@ -1,5 +1,5 @@
 package com.cole.dojooverflow.repositories;
 
-public interface ARepository {
+public interface AnswerRepository {
 
 }
