@@ -21,4 +21,10 @@ public class OverflowService {
 	public List<Question> getAllQuestions(){
 		return this.qRepo.findAll();
 	}
+	public Question getOneQuestion(Long id) {
+		return this.qRepo.findById(id).orElse(null);
+	}
+	public Question createQuestion(Question question) {
+		return this.qRepo.save(question);
+	}
 }
