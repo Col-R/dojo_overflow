@@ -21,7 +21,7 @@
 	<tbody>		
 		<c:forEach items = "${allQuestions}" var = "question">
 			<tr>
-				<td>${question.question}</td>
+				<td>${question.question_text}</td>
 				<td>tags to do</td>
 			</tr>
 		</c:forEach>

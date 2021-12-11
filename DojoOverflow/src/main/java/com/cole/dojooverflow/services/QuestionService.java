@@ -14,7 +14,6 @@ public class QuestionService {
 	private QuestionRepository qRepo;
 
 
-	
 	// Question services
 	public List<Question> getAllQuestions(){
 		return this.qRepo.findAll();

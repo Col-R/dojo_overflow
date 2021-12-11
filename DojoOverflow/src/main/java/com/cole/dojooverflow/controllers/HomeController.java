@@ -10,15 +10,16 @@ import com.cole.dojooverflow.services.QuestionService;
 @Controller
 public class HomeController {
 	@Autowired
-	private QuestionService oService;
+	private QuestionService qService;
 	
 	@GetMapping("/")
 	public String indexRedirect() {
 		return "redirect:/dashboard";
 	}
 	
+	@GetMapping("/dashboard")
 	public String dashboard(Model viewModel) {
-		viewModel.addAttribute("allQuestions", this.oService.getAllQuestions());
+		viewModel.addAttribute("allQuestions", this.qService.getAllQuestions());
 		return "question.jsp";
 	}
 }
