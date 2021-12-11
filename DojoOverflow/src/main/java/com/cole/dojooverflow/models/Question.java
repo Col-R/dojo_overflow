@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -37,6 +40,14 @@ public class Question {
 	
 	@OneToMany(mappedBy="que", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Answer> answers;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name = "tags_questions",
+			joinColumns = @JoinColumn(name="question_id"),
+			inverseJoinColumns = @JoinColumn(name="tag_id")
+			)
+	private List <Tag> qtags;
 	
 	
 	public Question() {
