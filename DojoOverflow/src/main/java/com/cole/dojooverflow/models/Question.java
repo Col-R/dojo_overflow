@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,6 +23,8 @@ public class Question {
 	private Long id;
 	@Size(min=2, max=200, message = "Must enter a question")
 	private String question_body;
+	@Transient
+	private String tags;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
 	private Date createdAt;
@@ -45,11 +48,18 @@ public class Question {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getQuestion() {
-		return question;
+
+	public String getQuestion_body() {
+		return question_body;
 	}
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setQuestion_body(String question_body) {
+		this.question_body = question_body;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
