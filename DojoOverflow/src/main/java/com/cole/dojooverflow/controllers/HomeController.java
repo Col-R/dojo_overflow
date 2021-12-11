@@ -5,12 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.cole.dojooverflow.services.OverflowService;
+import com.cole.dojooverflow.services.QuestionService;
 
 @Controller
 public class HomeController {
 	@Autowired
-	private OverflowService oService;
+	private QuestionService oService;
 	
 	@GetMapping("/")
 	public String indexRedirect() {

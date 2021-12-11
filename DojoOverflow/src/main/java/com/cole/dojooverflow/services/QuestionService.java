@@ -9,15 +9,13 @@ import com.cole.dojooverflow.models.Question;
 import com.cole.dojooverflow.repositories.QuestionRepository;
 
 @Service
-public class OverflowService {
+public class QuestionService {
 	@Autowired
 	private QuestionRepository qRepo;
-//	TO DO:
-//	@Autowired
-//	private AnswerRepository aRepo;
-//	@Autowired
-//	private UserRepository uRepo;
+
+
 	
+	// Question services
 	public List<Question> getAllQuestions(){
 		return this.qRepo.findAll();
 	}
