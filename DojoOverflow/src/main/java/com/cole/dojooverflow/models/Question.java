@@ -21,7 +21,7 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Size(min=2, max=200, message = "Must enter a question")
-	private String question;
+	private String question_body;
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
 	private Date createdAt;
