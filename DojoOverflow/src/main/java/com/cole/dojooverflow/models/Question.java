@@ -1,12 +1,16 @@
 package com.cole.dojooverflow.models;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -22,7 +26,7 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Size(min=2, max=200, message = "Must enter a question")
-	private String question_body;
+	private String question_text;
 	@Transient
 	private String tags;
 	@Column(updatable=false)
@@ -30,6 +34,10 @@ public class Question {
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
 	private Date updatedAt;
+	
+	@OneToMany(mappedBy="que", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Answer> answers;
+	
 	
 	public Question() {
 		
@@ -49,12 +57,16 @@ public class Question {
 		this.id = id;
 	}
 
-	public String getQuestion_body() {
-		return question_body;
+
+	public String getQuestion_text() {
+		return question_text;
 	}
-	public void setQuestion_body(String question_body) {
-		this.question_body = question_body;
+	public void setQuestion_text(String question_text) {
+		this.question_text = question_text;
 	}
+
+
+	
 	public String getTags() {
 		return tags;
 	}
