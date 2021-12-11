@@ -10,4 +10,6 @@ import com.cole.dojooverflow.models.Tag;
 @Repository
 public interface TagRepository extends CrudRepository <Tag, Long> {
 	List<Tag> findAll();
+	boolean existsBySubject(String subject);
+	Tag findBySubject (String subject);
 }

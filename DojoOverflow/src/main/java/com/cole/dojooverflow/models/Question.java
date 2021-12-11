@@ -32,6 +32,7 @@ public class Question {
 	private String question_text;
 	@Transient
 	private String tags;
+	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyy-MM-DD HH:mm:ss")
 	private Date createdAt;
@@ -47,6 +48,7 @@ public class Question {
 			joinColumns = @JoinColumn(name="question_id"),
 			inverseJoinColumns = @JoinColumn(name="tag_id")
 			)
+	
 	private List <Tag> qtags;
 	
 	

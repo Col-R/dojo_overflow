@@ -21,7 +21,6 @@ public class QuestionService {
 	public Question getOneQuestion(Long id) {
 		return this.qRepo.findById(id).orElse(null);
 	}
-	public Question createQuestion(Question question) {
-		return this.qRepo.save(question);
-	}
+	
+
 }
