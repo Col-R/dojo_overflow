@@ -96,5 +96,17 @@ public class Question {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+	public List<Tag> getQtags() {
+		return qtags;
+	}
+	public void setQtags(List<Tag> qtags) {
+		this.qtags = qtags;
+	}
 	
 }

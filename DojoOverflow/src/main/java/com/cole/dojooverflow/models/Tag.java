@@ -27,4 +27,40 @@ public class Tag {
 			inverseJoinColumns = @JoinColumn(name="question_id")
 			)
 	private List <Question> tquestions;
+
+
+	public Tag() {
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getSubject() {
+		return subject;
+	}
+
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+
+	public List<Question> getTquestions() {
+		return tquestions;
+	}
+
+
+	public void setTquestions(List<Question> tquestions) {
+		this.tquestions = tquestions;
+	}
+	
+	
 }
