@@ -12,10 +12,11 @@ import com.cole.dojooverflow.repositories.QuestionRepository;
 public class OverflowService {
 	@Autowired
 	private QuestionRepository qRepo;
-	@Autowired
-	private AnswerRepository aRepo;
-	@Autowired
-	private UserRepository uRepo;
+//	TO DO:
+//	@Autowired
+//	private AnswerRepository aRepo;
+//	@Autowired
+//	private UserRepository uRepo;
 	
 	public List<Question> getAllQuestions(){
 		return this.qRepo.findAll();
