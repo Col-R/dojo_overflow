@@ -16,4 +16,8 @@ public class AnswerService {
 	public List<Answer> getAllAnswers(){
 		return this.aRepo.findAll();
 	}
+	public Answer createAnswer(Answer answer) {
+		return this.aRepo.save(answer);
+	}
 }
+
