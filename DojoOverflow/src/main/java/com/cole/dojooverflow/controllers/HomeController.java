@@ -53,7 +53,7 @@ public class HomeController {
 		return "redirect:/dashboard";
 	}
 	
-	@GetMapping("/questions/{id}")
+	@GetMapping("/question/{id}")
 	public String show(Model viewModel, @ModelAttribute("answer")Answer answer, @PathVariable("id")Long id) {
 		viewModel.addAttribute("question",this.qService.getOneQuestion(id));
 		return "answer.jsp";

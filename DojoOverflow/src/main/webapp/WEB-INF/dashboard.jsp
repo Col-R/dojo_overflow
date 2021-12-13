@@ -26,7 +26,7 @@
 	<tbody>		
 		<c:forEach items = "${allQuestions}" var = "question">
 			<tr>
-				<td><a href = "/questions/{question.id}">${question.question_text}</a></td>
+				<td><a href = "/question/${question.id}">${question.question_text}</a></td>
 				<td>
 					<c:forEach items = "${question.qtags }" var = "t">
 					${t.subject },
