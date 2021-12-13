@@ -32,7 +32,7 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>
-	
+	<p><a href = "/">Go back</a></p>
 </div>	
 </div>
 </body>

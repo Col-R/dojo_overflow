@@ -17,7 +17,7 @@
 </div>
 <div class = "row">
 <div class = "col">
-	<c:forEach items = "${question.tags }" var = "t">
+	<c:forEach items = "${question.tags }" var = "tags">
 	${tag.subject },
 	</c:forEach>
 </div>
@@ -25,7 +25,7 @@
 <h3>Answers</h3>
 <div class = "col-4">
 <ul>
-	<c:forEach items = "${question.answers}" var = "a">
+	<c:forEach items = "${question.answers}" var = "answer">
 	<li>${answer.answer_text }</li>
 	</c:forEach>
 </ul>
@@ -40,7 +40,8 @@
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form:form>
-<a href = "/">Home</a>
+	
+	<p><a href = "/">Home</a></p>
 </div>
 
 

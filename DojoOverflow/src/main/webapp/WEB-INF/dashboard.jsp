@@ -34,7 +34,7 @@
 				</td>
 			</tr>
 		</c:forEach>
-		
+		<a href = "/questions/new">Submit a question of your own!</a>
 	</tbody>
 </table>
 </div>
