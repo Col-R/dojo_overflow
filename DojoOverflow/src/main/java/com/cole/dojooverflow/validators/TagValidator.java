@@ -14,7 +14,7 @@ public class TagValidator {
 		Question question = (Question) target;
 		String[] tags = question.getTags().split(", ");
 		if (tags.length>3) {
-			errors.rejectValue("tagsFromFrontEnd", "too many tags", "Use 3 or fewer tags");
+			errors.rejectValue("tags", "too many tags", "Use 3 or fewer tags");
 		}
 	}
 }

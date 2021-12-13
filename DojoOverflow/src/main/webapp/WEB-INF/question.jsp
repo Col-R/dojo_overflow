@@ -17,7 +17,7 @@
 </div>
 
 <div class = "row">
-	<form:form method = "POST" action = "/questions/new" modelAttribute = "question">
+	<form:form method = "POST" action = "/addQuestion" modelAttribute = "question">
 	
 		<div class = "col-7 mb-3">
 			<form:label path = "question_text" class= "form-label">Question here:</form:label>
