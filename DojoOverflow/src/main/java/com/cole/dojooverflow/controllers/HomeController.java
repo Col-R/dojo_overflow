@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.cole.dojooverflow.models.Answer;
 import com.cole.dojooverflow.models.Question;
 import com.cole.dojooverflow.services.AnswerService;
 import com.cole.dojooverflow.services.QuestionService;
@@ -49,5 +51,11 @@ public class HomeController {
 		}
 		this.tService.createQuestion(question);
 		return "redirect:/dashboard";
+	}
+	
+	@GetMapping("/questions/{id}")
+	public String show(Model viewModel, @ModelAttribute("answer")Answer answer, @PathVariable("id")Long id) {
+		viewModel.addAttribute("question",this.qService.getOneQuestion(id));
+		return "answer.jsp";
 	}
 }
