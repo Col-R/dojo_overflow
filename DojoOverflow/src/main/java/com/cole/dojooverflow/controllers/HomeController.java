@@ -1,15 +1,20 @@
 package com.cole.dojooverflow.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cole.dojooverflow.models.Question;
 import com.cole.dojooverflow.services.AnswerService;
 import com.cole.dojooverflow.services.QuestionService;
 import com.cole.dojooverflow.services.TagService;
+import com.cole.dojooverflow.validators.TagValidator;
 
 @Controller
 public class HomeController {
@@ -19,6 +24,8 @@ public class HomeController {
 	private AnswerService aService;
 	@Autowired
 	private TagService tService;
+	@Autowired
+	private TagValidator validator;
 	
 	@GetMapping("/")
 	public String indexRedirect() {
@@ -34,5 +41,13 @@ public class HomeController {
 	public String newQ(@ModelAttribute("question")Question question) {
 		return "question.jsp";
 	}
-	
+	@PostMapping("/addQuestion")
+	public String addQ(@Valid @ModelAttribute("question")Question question, BindingResult result) {
+		validator.validate(question, result);
+		if(result.hasErrors()) {
+			return "question.jsp";
+		}
+		this.tService.createQuestion(question);
+		return "redirect:/dashboard";
+	}
 }
