@@ -58,4 +58,9 @@ public class HomeController {
 		viewModel.addAttribute("question",this.qService.getOneQuestion(id));
 		return "answer.jsp";
 	}
+	@PostMapping("/addAnswer")
+	public String addAnswer(@Valid @ModelAttribute("answer")Answer answer, Model viewModel) {
+		this.aService.createAnswer(answer);
+		return "redirect:/";
+	}
 }
