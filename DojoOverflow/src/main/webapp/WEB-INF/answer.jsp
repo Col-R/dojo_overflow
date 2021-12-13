@@ -17,8 +17,9 @@
 </div>
 <div class = "row">
 <div class = "col">
-	<c:forEach items = "${question.tags }" var = "tags">
-	${tag.subject },
+<h3>Tags:</h3>
+	<c:forEach items = "${question.qtags }" var = "tag">
+	<button type="button" class="btn btn-outline-primary disabled">${tag.subject }</button>
 	</c:forEach>
 </div>
 </div>

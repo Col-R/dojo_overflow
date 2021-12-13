@@ -59,8 +59,12 @@ public class HomeController {
 		return "answer.jsp";
 	}
 	@PostMapping("/addAnswer")
-	public String addAnswer(@Valid @ModelAttribute("answer")Answer answer, Model viewModel) {
+	public String addAnswer(@Valid @ModelAttribute("answer")Answer answer, Model viewModel, BindingResult result) {
+		if (result.hasErrors()) {
+			viewModel.addAttribute("question", this.qService.getOneQuestion(answer.getQue().getId()));
+			return "answer.jsp";
+		}
 		this.aService.createAnswer(answer);
-		return "redirect:/";
+		return "redirect:/question/" + answer.getQue().getId();
 	}
 }
